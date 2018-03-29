@@ -13,7 +13,12 @@ public class resultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent intent=getIntent();
-        float bmi_result = intent.getFloatExtra("EX_BMI",0);
+       // float bmi_result = intent.getFloatExtra("EX_BMI",0);
+        Bundle bag=intent.getExtras();
+        float w=bag.getFloat("Weight",0);
+        float h=bag.getFloat("Height",0);
+        float bmi_result=w/(h*h);
+
         TextView result = findViewById(R.id.Result);
         result.setText(String.valueOf(bmi_result));
 
